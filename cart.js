@@ -52,3 +52,28 @@ applyDiscount(100, 0);
 applyDiscount(100, 1); 
 applyDiscount(100, -1); 
 applyDiscount(100, 1.5); 
+/*
+==== Debugging Summary ====
+
+1. Issue: Loop in calculateTotal accessed an undefined item.
+   - Fix: Changed loop from i <= length to i < length.
+
+2. Issue: applyDiscount accepted invalid values.
+   - Fix: Added check to ensure discountRate is between 0 and 1.
+
+3. Issue: toFixed on possibly NaN.
+   - Fix: Added isNaN check in generateReceipt.
+
+4. Tools Used:
+   - Console tab for error messages.
+   - Sources tab and `debugger` statement to step through loop and verify values.
+   - Call stack to trace function calls during runtime.
+
+5. Edge Cases Tested:
+   ✅ Empty cart
+   ✅ Single item
+   ✅ DiscountRate of 0 and 1
+   ✅ Invalid discountRate values (-1, 2)
+
+Result: The program is now stable, readable, and handles common edge cases.
+/*
